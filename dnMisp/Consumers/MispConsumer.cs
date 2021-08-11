@@ -96,11 +96,11 @@ namespace dnMisp
         {
             base.Init(baseUri);
 
-            InitHeaders(authKey);
+            InitHttpHeaders(authKey);
             InitJsonSettings();
 
             if (initMispGlobals)
-                this.InitMispGlobals(throwIfExcept).Start();
+                InitMispGlobals(throwIfExcept).Wait();
         }
 
 
@@ -109,7 +109,7 @@ namespace dnMisp
             JsonConvert.DefaultSettings = () => JsonHelper.Settings;
         }
 
-        private void InitHeaders(string authKey)
+        private void InitHttpHeaders(string authKey)
         {
             DefaultRequestHeaders.Accept.Clear();
             DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(MIME_TYPE_JSON));

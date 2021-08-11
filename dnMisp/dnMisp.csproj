@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Sylvain Bruyere, Airbus CERT</Authors>
     <Company>Airbus CERT</Company>
-    <Version>1.0.2.2</Version>
+    <Version>1.0.2.3</Version>
     <Description>dnMisp is a simple, MISP Rest API consumer .Net Standard 2.0 library.</Description>
     <LangVersion>preview</LangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -12,8 +12,8 @@
     <RepositoryUrl>https://github.com/airbus-cert/dnMisp</RepositoryUrl>
     <PackageTags>MISP, IOCs, DFIR, malware</PackageTags>
     <Copyright>Airbus CERT</Copyright>
-    <AssemblyVersion>1.0.2.2</AssemblyVersion>
-    <FileVersion>1.0.2.2</FileVersion>
+    <AssemblyVersion>1.0.2.3</AssemblyVersion>
+    <FileVersion>1.0.2.3</FileVersion>
     <PackageIcon>icon-48x48.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>
