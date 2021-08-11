@@ -8,7 +8,7 @@ namespace dnMisp.Misc
         static JsonHelper()
         {
             settings = new JsonSerializerSettings();
-            settings.DateFormatString = "YYYY-MM-DD";
+            settings.DateFormatString = "yyyy-MM-dd";
             settings.NullValueHandling = NullValueHandling.Ignore;
             settings.DefaultValueHandling = DefaultValueHandling.Ignore;
             settings.Formatting = Formatting.None;

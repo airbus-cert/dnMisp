@@ -41,29 +41,29 @@ namespace dnMisp
         protected MispConsumer(
             string baseurl,
             string authKey,
-            bool startInitialization = true,
+            bool initMispGlobals = false,
             int MaxConnectionsPerServer = 4) : base(MaxConnectionsPerServer)
         {
-            Initialize(baseurl, authKey, startInitialization);
+            Initialize(baseurl, authKey, initMispGlobals);
         }
 
         protected MispConsumer(
             Uri baseurl,
             string authKey,
-            bool startInitialization = true,
+            bool initMispGlobals = false,
             int MaxConnectionsPerServer = 4) : base(MaxConnectionsPerServer)
         {
-            Initialize(baseurl, authKey, startInitialization);
+            Initialize(baseurl, authKey, initMispGlobals);
         }
 
         public static T Create<T>(
             Uri baseUri,
             string authKey,
-            bool initialize = true,
+            bool initMispGlobals = false,
             int MaxConnectionsPerServer = 4
             ) where T : MispConsumer
         {
-            T newConsumer = (T)Activator.CreateInstance(typeof(T), baseUri, authKey, initialize, MaxConnectionsPerServer);
+            T newConsumer = (T)Activator.CreateInstance(typeof(T), baseUri, authKey, initMispGlobals, MaxConnectionsPerServer);
             Current = newConsumer;
 
             return newConsumer;
@@ -72,10 +72,10 @@ namespace dnMisp
         public static T Create<T>(
             string baseurl,
             string authKey,
-            bool startInitialization = true,
+            bool initMispGlobals = false,
             int MaxConnectionsPerServer = 4) where T : MispConsumer
         {
-            return Create<T>(new Uri(baseurl), authKey, startInitialization, MaxConnectionsPerServer);
+            return Create<T>(new Uri(baseurl), authKey, initMispGlobals, MaxConnectionsPerServer);
         }
         #endregion
 
@@ -83,31 +83,31 @@ namespace dnMisp
         internal void Initialize(
             string baseUri,
             string authKey,
-            bool startInitialization = true)
+            bool initMispGlobals = false)
         {
-            Initialize(new Uri(baseUri), authKey, startInitialization);
+            Initialize(new Uri(baseUri), authKey, initMispGlobals);
         }
 
         internal void Initialize(
             Uri baseUri,
             string authKey,
-            bool initMispGlobals = true,
+            bool initMispGlobals = false,
             bool throwIfExcept = false)
         {
             base.Init(baseUri);
 
             InitHttpHeaders(authKey);
-            InitJsonSettings();
+            //InitJsonSettings();
 
             if (initMispGlobals)
                 InitMispGlobals(throwIfExcept).Wait();
         }
 
 
-        private static void InitJsonSettings()
-        {
-            JsonConvert.DefaultSettings = () => JsonHelper.Settings;
-        }
+        //private static void InitJsonSettings()
+        //{
+        //    JsonConvert.DefaultSettings = () => JsonHelper.Settings;
+        //}
 
         private void InitHttpHeaders(string authKey)
         {
