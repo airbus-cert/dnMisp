@@ -16,6 +16,7 @@
     <FileVersion>1.0.2.6</FileVersion>
     <PackageIcon>icon-48x48.png</PackageIcon>
     <PackageIconUrl />
+    <PackageProjectUrl>https://github.com/airbus-cert/</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
