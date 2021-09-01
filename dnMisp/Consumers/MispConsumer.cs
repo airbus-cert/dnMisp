@@ -445,7 +445,7 @@ namespace dnMisp
             if (attachToObject != null)
             {
                 attachToObject.Attributes.Add(newAtt);
-                return null;
+                return newAtt;
             }
 
             return newAtt;
